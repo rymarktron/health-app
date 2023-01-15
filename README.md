@@ -1,4 +1,4 @@
-#Project for Delta Hacks
+## Project for Delta Hacks
 
 ## Inspiration: 
 For many people, keeping track of day-to-day items can be difficult. This is only exacerbated with the progression of age with many senior citizens either forced to adopt increasingly simplistic lifestyles or risk forgetting crucial actions.
