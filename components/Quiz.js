@@ -1,5 +1,6 @@
 import { useState , useContext } from "react";
 import { QuizContext } from './QuizContext';
+import styles from '@/styles/Home.module.css'
 
 const Questions = [
     {
@@ -13,6 +14,12 @@ const Questions = [
         optionA: "yes",
         optionB: "no",
         answer: "A", 
+    },
+    {
+        prompt: "Have you called a relative or friend today?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A",   
     },
     {
         prompt: "Did you take your drink more than 2L of water today?",
@@ -66,8 +73,11 @@ const Quiz = () => {
 
     return ( 
         <>
-            <h1>Quiz</h1>
-            <h2>{Questions[currentQuestion].prompt}</h2>
+            <div className={styles.blurb}>
+                <h1>Quiz</h1>
+                <h2>{Questions[currentQuestion].prompt}</h2>
+            </div>
+
             <div className = "options">
                 <button onClick={() =>setOptionSelected("A")}> {Questions[currentQuestion].optionA}</button>
                 <button onClick={() =>setOptionSelected("B")}> {Questions[currentQuestion].optionB}</button>
