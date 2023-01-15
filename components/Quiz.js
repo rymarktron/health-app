@@ -3,6 +3,9 @@ import { QuizContext } from './QuizContext';
 import styles from '@/styles/Home.module.css'
 import Image from "next/image";
 
+//variable that turns high when it is clicked
+var previous = false;
+
 const Questions = [
     {
         prompt: "Did you take your pills today?",
@@ -60,16 +63,18 @@ const Quiz = () => {
     const { score, totalScore, setGameState} = useContext(QuizContext)
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [optionSelected, setOptionSelected] = useState("");
     
-    const checker = () => {
+    const checker = (optionSelected) => {
         //questions done, no more. nein, au revoir. auf wiedesehen
+        
         if(currentQuestion == Questions.length - 1){
             if(Questions[currentQuestion].answer == optionSelected) {
                 totalScore(score + 1);
+                alert("Robert");
             }
             else{
-                alert("Be sure to complete this task by the end of the day.");
+                //alert("Be sure to complete this task by the end of the day.");
+                alert("Megan");
             }
             setGameState("end");
         }
@@ -78,16 +83,31 @@ const Quiz = () => {
             //give point 
             if(Questions[currentQuestion].answer == optionSelected) {
                 totalScore(score + 1);
+                alert("Victoria");
             }
             else {
                 //alert(score);
                 //send alert to let user know to complete the task
-                alert("Be sure to complete this task by the end of the day.");
-            }    
-            //go to next question by adding 1 to the array index
-            setCurrentQuestion(currentQuestion+1);
+                //alert("Be sure to complete this task by the end of the day.");
+                alert("Mike");
+            }
+
+
         }    
     }
+
+    const water = (optionSelected) => {
+        checker(optionSelected);
+        setCurrentQuestion(
+            (current) => {
+                return current +1
+            }
+        );
+    }
+
+    //const [noQuestions, setNoQuestions] = useState([])
+
+    //setNoQuestions(current => [...current, newNoQuestion])
 
     return ( 
         <>
@@ -97,21 +117,20 @@ const Quiz = () => {
                 <Image src={Questions[currentQuestion].imageLink} width = {500} height = {350}/>
             </div>
 
-            <div className = "flat">
+
+            <>
                 <button onClick={() =>{
-                    setOptionSelected("A");
-                    checker();
+                    water("A")
                 }}> 
                     {Questions[currentQuestion].optionA}
                 </button>
 
                 <button onClick={() =>{
-                    setOptionSelected("B");
-                    checker();
+                    water("B")
                 }}> 
                     {Questions[currentQuestion].optionB}
                 </button>
-            </div>
+            </>
 
         </>
      );
