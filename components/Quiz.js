@@ -69,15 +69,24 @@ const Quiz = () => {
         else {
             //alert(score);
             alert("Be sure to complete this task by the end of the day.");
-        }
-        setCurrentQuestion(currentQuestion+1);
+            totalScore(score + 1);
+        }    
     }
 
-    const finishQuiz = () => {
-        if(Questions[currentQuestion].answer == optionSelected) {
-            totalScore(score + 1);
+
+    
+    const checker = () => {
+        //questions done, no more. nein, au revoir. auf wiedesehen
+        if(currentQuestion == Questions.length - 1){
+            if(Questions[currentQuestion].answer == optionSelected) {
+                totalScore(score + 1);
+            }
+            setGameState("end");
         }
-        setGameState("end");
+        else {
+            setCurrentQuestion(currentQuestion+1);
+            {nextQuestion}
+        }    
     }
 
     return ( 
@@ -89,17 +98,28 @@ const Quiz = () => {
             </div>
 
             <div className = "options">
-                <button onClick={() =>setOptionSelected("A")}> {Questions[currentQuestion].optionA}</button>
-                <button onClick={() =>setOptionSelected("B")}> {Questions[currentQuestion].optionB}</button>
+                <button onClick={() =>{
+                    setOptionSelected("A");
+                    checker();
+                    }}> {Questions[currentQuestion].optionA}</button>
+                    
+                <button onClick={() =>{
+                    setOptionSelected("B");
+                    checker();
+                }}> {Questions[currentQuestion].optionB}</button>
             </div>
 
-            {currentQuestion == Questions.length - 1 ? (
-                <button onClick ={finishQuiz}>Finish Quiz</button>
-            ) : (
-                <button onClick={nextQuestion}> Next Question </button>
-            )}
         </>
      );
 }
  
 export default Quiz;
+
+/*
+            {currentQuestion == Questions.length - 1 ? (
+                <button onClick ={finishQuiz}>Finish Quiz</button>
+            ) : (
+                <button onClick={nextQuestion}> Next Question </button>
+            )}
+            */
+           
