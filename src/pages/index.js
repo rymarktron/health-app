@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>To Be or Not To Be</title>
-        <meta name="description" content="Healthcare app to share" />
+        <title>To Do or Not To Do</title>
+        <meta name="description" content="App designed for seniors to track their daily goals" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
