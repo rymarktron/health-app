@@ -68,6 +68,9 @@ const Quiz = () => {
             if(Questions[currentQuestion].answer == optionSelected) {
                 totalScore(score + 1);
             }
+            else{
+                alert("Be sure to complete this task by the end of the day.");
+            }
             setGameState("end");
         }
 
