@@ -1,6 +1,7 @@
 import { useState , useContext } from "react";
 import { QuizContext } from './QuizContext';
 import styles from '@/styles/Home.module.css'
+import Image from "next/image";
 
 const Questions = [
     {
@@ -8,42 +9,49 @@ const Questions = [
         optionA: "yes",
         optionB: "no",
         answer: "A",
+        imageLink: "/images/pills.jpeg",
     },
     {
         prompt: "Did you read the newspaper this morning?",
         optionA: "yes",
         optionB: "no",
         answer: "A", 
+        imageLink: "/images/news.jpeg",
     },
     {
         prompt: "Have you called a relative or friend today?",
         optionA: "yes",
         optionB: "no",
         answer: "A",   
+        imageLink: "/images/call.jpeg",
     },
     {
         prompt: "Did you take your drink more than 2L of water today?",
         optionA: "yes",
         optionB: "no",
-        answer: "A",   
+        answer: "A",
+        imageLink: "/images/waterbottle.png",   
     },
     {
         prompt: "Did you have more than 7 hours of sleep last night?",
         optionA: "yes",
         optionB: "no",
         answer: "A",   
+        imageLink: "/images/sleep.png",
     },
     {
         prompt: "Did you eat your fruits and vegetables today?",
         optionA: "yes",
         optionB: "no",
         answer: "A", 
+        imageLink: "/images/fruits.jpeg",
     },
     {
         prompt: "Did you get 30 minutes of exercise today?",
         optionA: "yes",
         optionB: "no",
         answer: "A", 
+        imageLink: "/images/running.png",
     },
 ];
 
@@ -76,6 +84,7 @@ const Quiz = () => {
             <div className={styles.blurb}>
                 <h1>Quiz</h1>
                 <h2>{Questions[currentQuestion].prompt}</h2>
+                <Image src={Questions[currentQuestion].imageLink} width = {500} height = {350}/>
             </div>
 
             <div className = "options">
