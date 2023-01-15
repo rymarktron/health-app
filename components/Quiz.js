@@ -9,10 +9,28 @@ const Questions = [
         answer: "A",
     },
     {
+        prompt: "Did you read the newspaper this morning?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A", 
+    },
+    {
         prompt: "Did you take your drink more than 2L of water today?",
         optionA: "yes",
         optionB: "no",
         answer: "A",   
+    },
+    {
+        prompt: "Did you have more than 7 hours of sleep last night?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A",   
+    },
+    {
+        prompt: "Did you eat your fruits and vegetables today?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A", 
     },
     {
         prompt: "Did you get 30 minutes of exercise today?",
@@ -33,7 +51,9 @@ const Quiz = () => {
         if(Questions[currentQuestion].answer == optionSelected) {
             totalScore(score + 1);
         }
-        alert(score);
+        else {
+            alert(score);
+        }
         setCurrentQuestion(currentQuestion+1);
     }
 
