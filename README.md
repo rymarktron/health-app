@@ -20,3 +20,5 @@ On a technical front, we learned the basics of React programming as well as git 
 
 ## What's next for To Do or !To Do
 We could look into adding role based access control to allow loved ones or other friends of the user to upload daily checklists. We could also look into improving the user interface and adding timer-based notifications to the app. 
+
+Devpost: [Link](https://devpost.com/submit-to/17051-deltahacks-ix/manage/submissions/382091-to-do-or-to-do/project_details/edit)
