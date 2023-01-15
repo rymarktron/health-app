@@ -1,0 +1,60 @@
+const Questions = [
+    {
+        prompt: "Did you take your pills today?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A",
+        task: "take your pills today",
+        imageLink: "/images/pills.jpeg",
+    },
+    {
+        prompt: "Did you read the newspaper this morning?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A", 
+        task: "read your newspaper",
+        imageLink: "/images/news.jpeg",
+    },
+    {
+        prompt: "Have you called a relative or friend today?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A",   
+        task: "call a relative or friends today",
+        imageLink: "/images/call.jpeg",
+    },
+    {
+        prompt: "Did you take your drink more than 2L of water today?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A",
+        task: "drink 2L of water today",
+        imageLink: "/images/waterbottle.png",   
+    },
+    {
+        prompt: "Did you have more than 7 hours of sleep last night?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A",   
+        task: "sleep more than 7 hours",
+        imageLink: "/images/sleep.png",
+    },
+    {
+        prompt: "Did you eat your fruits and vegetables today?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A", 
+        task: "eat your fruits and veggies",
+        imageLink: "/images/fruits.jpeg",
+    },
+    {
+        prompt: "Did you get at least 30 minutes of exercise today?",
+        optionA: "Yes",
+        optionB: "No",
+        answer: "A", 
+        task: "exercise for at least 30 minutes today",
+        imageLink: "/images/running.png",
+    },
+];
+
+export default Questions;

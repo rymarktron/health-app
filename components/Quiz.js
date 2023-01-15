@@ -2,77 +2,19 @@ import { useState , useContext } from "react";
 import { QuizContext } from './QuizContext';
 import styles from '@/styles/Home.module.css'
 import Image from "next/image";
+import Questions from "./Questions";
 
 //variable that turns high when it is clicked
 var previous = false;
 
-const Questions = [
-    {
-        prompt: "Did you take your pills today?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A",
-        task: "take your pills today",
-        imageLink: "/images/pills.jpeg",
-    },
-    {
-        prompt: "Did you read the newspaper this morning?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A", 
-        task: "read your newspaper",
-        imageLink: "/images/news.jpeg",
-    },
-    {
-        prompt: "Have you called a relative or friend today?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A",   
-        task: "call a relative or friends today",
-        imageLink: "/images/call.jpeg",
-    },
-    {
-        prompt: "Did you take your drink more than 2L of water today?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A",
-        task: "drink 2L of water today",
-        imageLink: "/images/waterbottle.png",   
-    },
-    {
-        prompt: "Did you have more than 7 hours of sleep last night?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A",   
-        task: "sleep more than 7 hours",
-        imageLink: "/images/sleep.png",
-    },
-    {
-        prompt: "Did you eat your fruits and vegetables today?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A", 
-        task: "eat your fruits and veggies",
-        imageLink: "/images/fruits.jpeg",
-    },
-    {
-        prompt: "Did you get at least 30 minutes of exercise today?",
-        optionA: "Yes",
-        optionB: "No",
-        answer: "A", 
-        task: "exercise for at least 30 minutes today",
-        imageLink: "/images/running.png",
-    },
-];
-
 //register options to selected. destructure after using context to get desired info
 const Quiz = () => {
-    const { gameState, setGameState, score, setScore} = useContext(QuizContext)
+    const { gameState, setGameState, score, setScore, noQuestions, setNoQuestions} = useContext(QuizContext)
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     
-   //const [noQuestions, setNoQuestions] = useState([])
-    //setNoQuestions(current => [...current, newNoQuestion])
+    //array for no questions. append only numbers
+    // const [noQuestions, setNoQuestions] = useState([])
 
     const checker = (optionSelected) => {
         //questions done, no more. nein, au revoir. auf wiedesehen
@@ -89,6 +31,9 @@ const Quiz = () => {
             else{
                 alert("Be sure to complete this task by the end of the day.");
                 //alert("Megan");
+
+                //append to array using ... javascript, output will be given in the end
+                setNoQuestions(current => [...current, currentQuestion]); //+1
             }
             setGameState("end");
         }
@@ -104,10 +49,12 @@ const Quiz = () => {
                 //alert("Victoria");
             }
             else {
-                //alert(score);
                 //send alert to let user know to complete the task
                 alert("Be sure to complete this task by the end of the day.");
-                //alert("Mike");
+                //alert("Mike");'
+
+                //append to array using ... javascript, output will be given in the end
+                setNoQuestions(current => [...current, currentQuestion]);
             }
         }    
     }

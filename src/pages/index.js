@@ -12,6 +12,7 @@ import { QuizContext } from 'components/QuizContext'
 export default function Home() {
   const [gameState, setGameState] = useState("start");
   const [score, setScore] = useState(0);
+  const [noQuestions, setNoQuestions] = useState([])
 
   return (
     <>
@@ -22,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <QuizContext.Provider value ={{ gameState, setGameState, score, setScore}}>
+      <QuizContext.Provider value ={{ gameState, setGameState, score, setScore, noQuestions, setNoQuestions}}>
         {gameState === "start" && <Start />}
         {gameState === "quiz" && <Quiz />}
         {gameState === "end" && <End />}
