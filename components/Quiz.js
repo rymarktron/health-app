@@ -24,7 +24,7 @@ const Questions = [
 
 //register options to selected. destructure after using context to get desired info
 const Quiz = () => {
-    const { score, totalScore} = useContext(QuizContext)
+    const { score, totalScore, setGameState} = useContext(QuizContext)
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionSelected, setOptionSelected] = useState("");
@@ -36,6 +36,14 @@ const Quiz = () => {
         alert(score);
         setCurrentQuestion(currentQuestion+1);
     }
+
+    const finishQuiz = () => {
+        if(Questions[currentQuestion].answer == optionSelected) {
+            totalScore(score + 1);
+        }
+        setGameState("end");
+    }
+
     return ( 
         <>
             <h1>Quiz</h1>
@@ -45,7 +53,11 @@ const Quiz = () => {
                 <button onClick={() =>setOptionSelected("B")}> {Questions[currentQuestion].optionB}</button>
             </div>
 
-            <button onClick={nextQuestion}> Next Question </button>
+            {currentQuestion == Questions.length - 1 ? (
+                <button onClick ={finishQuiz}>Finish Quiz</button>
+            ) : (
+                <button onClick={nextQuestion}> Next Question </button>
+            )}
         </>
      );
 }
