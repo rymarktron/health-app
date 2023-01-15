@@ -1,6 +1,52 @@
+import { useState , useContext } from "react";
+import { QuizContext } from './QuizContext';
+
+const Questions = [
+    {
+        prompt: "Did you take your pills today?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A",
+    },
+    {
+        prompt: "Did you take your drink more than 2L of water today?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A",   
+    },
+    {
+        prompt: "Did you get 30 minutes of exercise today?",
+        optionA: "yes",
+        optionB: "no",
+        answer: "A", 
+    },
+];
+
+//register options to selected. destructure after using context to get desired info
 const Quiz = () => {
+    const { score, totalScore} = useContext(QuizContext)
+
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [optionSelected, setOptionSelected] = useState("");
+    
+    const nextQuestion = () => {
+        if(Questions[currentQuestion].answer == optionSelected) {
+            totalScore(score + 1);
+        }
+        alert(score);
+        setCurrentQuestion(currentQuestion+1);
+    }
     return ( 
-        <h1>Work on quiz</h1>
+        <>
+            <h1>Quiz</h1>
+            <h2>{Questions[currentQuestion].prompt}</h2>
+            <div className = "options">
+                <button onClick={() =>setOptionSelected("A")}> {Questions[currentQuestion].optionA}</button>
+                <button onClick={() =>setOptionSelected("B")}> {Questions[currentQuestion].optionB}</button>
+            </div>
+
+            <button onClick={nextQuestion}> Next Question </button>
+        </>
      );
 }
  

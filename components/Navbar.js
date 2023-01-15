@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Navbar = () => {
     return ( 
         <nav>
-            <a href ="/"><div className = "logo">
+            <a href ="/"><div>
                 <Image src = "/logo.svg" alt = "logo for app" width = {80} height = {80}/>
             </div></a>
         </nav>

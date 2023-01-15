@@ -7,11 +7,11 @@ body {
 }
 
 nav {
-  margin: 10px auto 80px;
+  margin: 10px auto 50px;
   padding: 10px 0;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid #ddd;
 }
 
@@ -21,7 +21,7 @@ button {
   padding: 8px 0;
   margin: 20px auto;
   background: white;
-  border-radius: 5px;
-  color: lightblue;
+  border-radius: 10px;
+  color: darkblue;
   text-align: center;
 }
