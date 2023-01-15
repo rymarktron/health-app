@@ -67,7 +67,8 @@ const Quiz = () => {
             totalScore(score + 1);
         }
         else {
-            alert(score);
+            //alert(score);
+            alert("Be sure to complete this task by the end of the day.");
         }
         setCurrentQuestion(currentQuestion+1);
     }
