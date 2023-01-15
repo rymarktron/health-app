@@ -7,6 +7,7 @@ const Start = () => {
     const {gameState, setGameState} = useContext(QuizContext)
     return ( 
         <>
+        
             <div className={styles.title}>
                 <h1>Welcome to Your Daily To Do List</h1>
             </div>

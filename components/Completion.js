@@ -5,13 +5,17 @@ import Image from 'next/image';
 
 //figure out how to randomize 
 const Completion = () => {
-    const { setGameState} = useContext(QuizContext)
+    const { gameState, setGameState, score, setScore} = useContext(QuizContext)
     
     return ( 
         <div className={styles.end}>
-            <h2>You have completed your tasks</h2>
+            <h2>{"You have completed " + score + " / 7 of your tasks"}</h2>
             <Image src={"/gut.png"} width = {500} height = {350}/>
-            <button onClick ={() => {setGameState("start")}}>Fill again</button>
+            
+            <button onClick ={() => {
+                setGameState("start")
+                setScore(0)
+                }}>Fill again</button>
         </div>
      );
 }
