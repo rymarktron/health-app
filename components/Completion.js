@@ -18,7 +18,7 @@ const Completion = () => {
     
     return ( 
         <div className={styles.end}>
-            <h2>{"You have completed " + score + " / 3 of your tasks"}</h2>
+            <h2>{"You have completed " + score + " / 7 of your tasks"}</h2>
             <Image src={"/gut.png"} width = {400} height = {300}/>
             
             {/* You answered "no" to: {...noQuestions} */}
